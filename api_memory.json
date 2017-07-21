@@ -1,0 +1,142 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Memory",
+    "type": "object",
+    "required": ["node", "relation", "narrative"],
+    "properties": {
+        "node": {
+            "type": "object",
+            "required": [
+                "name",
+                "label",
+                "imageURL",
+                "iconURL",
+                "created",
+                "updated"
+            ],
+            "properties": {
+                "name": {"type": "string"},
+                "label": {"type": "string", "description": "Memory Title"},
+                "imageURL": {"type": "string"},
+                "iconURL": {"type": "string"},
+                "created": {"type": "string"},
+                "updated": {"type": "string"}
+            }
+        },
+        "relation": {
+            "type": "object",
+            "required": [
+                "weight",
+                "joy",
+                "fear",
+                "surprise",
+                "sadness",
+                "disgust",
+                "anger"
+            ],
+            "properties": {
+                "name": {"type": "string"},
+                "weight": {"type": "number"},
+                "joy": {"type": "number"},
+                "fear": {"type": "number"},
+                "surprise": {"type": "number"},
+                "sadness": {"type": "number"},
+                "disgust": {"type": "number"},
+                "anger": {"type": "number"}
+            }
+        },
+        "concepts": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["node", "relation"],
+                "properties": {
+                    "node": {
+                        "type": "object",
+                        "required": [
+                            "concept",
+                            "name",
+                            "label",
+                            "iconURL",
+                            "imageURL"
+                        ],
+                        "properties": {
+                            "concept": {"type": "string"},
+                            "name": {"type": "string"},
+                            "label": {"type": "string"},
+                            "iconURL": {"type": "string"},
+                            "imageURL": {"type": "string"},
+                            "contact": {"type": "string"}
+                        }
+                    },
+                    "relation": {
+                        "type": "object",
+                        "required": [
+                            "relation",
+                            "name",
+                            "iconURL",
+                            "imageURL",
+                            "weight",
+                            "created",
+                            "updated",
+                            "originType",
+                            "joy",
+                            "fear",
+                            "surprise",
+                            "sadness",
+                            "disgust",
+                            "anger"
+                        ],
+                        "properties": {
+                            "relation": {"type": "string"},
+                            "name": {"type": "string"},
+                            "iconURL": {"type": "string"},
+                            "imageURL": {"type": "string"},
+                            "weight": {"type": "number"},
+                            "created": {"type": "string"},
+                            "updated": {"type": "string"},
+                            "originType": {
+                                "type": "string",
+                                "enum": [
+                                    "OriginUserDefined",
+                                    "OriginInferred",
+                                    "OriginImagined"
+                                ]
+                            },
+                            "joy": {"type": "number"},
+                            "fear": {"type": "number"},
+                            "surprise": {"type": "number"},
+                            "sadness": {"type": "number"},
+                            "disgust": {"type": "number"},
+                            "anger": {"type": "number"}
+                        }
+                    }
+                }
+            }
+        },
+        "narrative": {
+            "type": "object",
+            "required": ["node", "relation"],
+            "properties": {
+                "node": {
+                    "type": "object",
+                    "required": ["name", "text", "label", "created", "updated"],
+                    "properties": {
+                        "name": {"type": "string"},
+                        "text": {"type": "string"},
+                        "label": {"type": "string"},
+                        "created": {"type": "string"},
+                        "updated": {"type": "string"}
+                    }
+                },
+                "relation": {
+                    "type": "object",
+                    "required": ["weight"],
+                    "properties": {
+                        "weight": {"type": "number"}
+                    }
+                }
+            }
+        }
+    }
+}
